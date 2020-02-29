@@ -58,7 +58,10 @@ public class PlaystationController implements RobotControls {
             pressPSButton(robot);
         } else if(playstation.getRawButton(14)){
             pressTouchPad(robot);
-        } else {
+        } else if(playstation.getRawButtonReleased(6)){
+            r1Released(robot);
+        }
+         else {
             nothingPressed(robot);
         }
     }
@@ -124,6 +127,11 @@ public class PlaystationController implements RobotControls {
 
     //If a subteam wants to use the square button for controls
     protected void pressSquare(Robot robot) {
+    }
+
+    //To allow the shooter catch wheels to stop while shooter flywheel going
+    protected void r1Released(Robot robot){
+
     }
 
 }

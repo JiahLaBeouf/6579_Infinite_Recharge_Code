@@ -27,8 +27,9 @@ import frc.robot.subsytems.Subsystem;
 //Sam is good with playstation controllers!
 
 /**
- * This is a demo program showing the use of the DifferentialDrive class.
+ * This is no longer a demo program showing the use of the DifferentialDrive class.
  * Runs the motors with arcade steering.
+ * It now is 6579s main robot class
  */
 public class Robot extends TimedRobot {
 
@@ -142,76 +143,4 @@ public class Robot extends TimedRobot {
       nextSubsystem.publishStats();
     }
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-  /*
-  private final PWMVictorSPX leftMotor_1 = new PWMVictorSPX(0);
-  private final PWMVictorSPX leftMotor_2 = new PWMVictorSPX(1);
-
-  private final PWMVictorSPX rightMotor_1 = new PWMVictorSPX(2);
-  private final PWMVictorSPX rightMotor_2 = new PWMVictorSPX(3);
-
-  private final VictorSP intakeFlywheel = new VictorSP(5);
-  private final VictorSP intakeArm = new VictorSP(6);
-
-  private final VictorSP shooter = new VictorSP(4);
-
-  private final SpeedControllerGroup toughBox1 = new SpeedControllerGroup(leftMotor_1, leftMotor_2);
-  private final SpeedControllerGroup toughBox2 = new SpeedControllerGroup(rightMotor_1, rightMotor_2);
-
-  //Right now assuming playstation controler
-  private final DifferentialDrive m_robotDrive = new DifferentialDrive(toughBox1, toughBox2);
-  private final XboxController m_stick = new XboxController(0);
-
-  @Override
-  public void teleopPeriodic() {
-    // Drive with arcade drive.
-    // That means that the Y axis drives forward
-    // and backward, and the X turns left and right.
-
-    final double stickX = m_stick.getRawAxis(0);
-    final double stickY = m_stick.getRawAxis(1);
-
-    m_robotDrive.arcadeDrive(stickY, stickX);
-
-    if(m_stick.getRawButton(8)){
-      intakeFlywheel.set(-0.85);
-      //R2
-    }
-    else if (m_stick.getRawButton(9)){
-      //Share
-      intakeFlywheel.set(0.1);
-    }
-    else if (m_stick.getRawButton(2)){
-      intakeArm.set(0.6);
-      //X button
-      //this makes the intake arm go down
-    }
-    else if (m_stick.getRawButton(1)){
-      intakeArm.set(-0.8);
-      //Square Button
-      //intake arm go up
-    }else if (m_stick.getRawButton(6)){
-      shooter.set(1);
-      //use shooter
-      //R1 (right bumper)
-    }
-    else {
-      intakeFlywheel.set(0);
-      intakeArm.set(0);
-      shooter.set(0);
-    }
-  }
-  */
 }

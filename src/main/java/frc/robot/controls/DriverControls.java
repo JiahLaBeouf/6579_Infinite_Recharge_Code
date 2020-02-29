@@ -80,6 +80,13 @@ public class DriverControls extends PlaystationController{
       robot.getClimber().climberMove(-.4);
     }
     
+    //resets shooter
+    @Override 
+    public void r1Released(Robot robot){
+      robot.getShooter().takeBall(0);
+      robot.getShooter().reset();
+    }
+    
 
     @Override
     public void nothingPressed(Robot robot){
