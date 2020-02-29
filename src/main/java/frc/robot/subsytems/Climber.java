@@ -3,7 +3,7 @@
 /* Open Source Software - may be modified and shared by FRC teams. The code   */
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
-/*----------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------P-----------*/
 
 package frc.robot.subsytems;
 
@@ -14,7 +14,7 @@ import edu.wpi.first.wpilibj.VictorSP;
 import frc.robot.Robot;
 
 /**
- * Add your docs here.
+ * Depends on REV SparkMax download by going CTRL SHIFT P then manage libaries, hit online instal: URL: 
  */
 public class Climber implements Subsystem{
 

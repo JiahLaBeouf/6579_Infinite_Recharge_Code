@@ -29,11 +29,9 @@ public class Shooter implements Subsystem{
     }
 
     public void takeBall(double speed){
-        if(shootingBall){
+     
             shooterEntryWheel.set(speed);
-        } else {
-            shooterEntryWheel.set(0);
-        }
+         //   shooterEntryWheel.set(0);
     }
 
     public void shootBall(double speed){

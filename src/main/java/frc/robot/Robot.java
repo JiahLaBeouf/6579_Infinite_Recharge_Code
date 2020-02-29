@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.controls.DriverControls;
 import frc.robot.controls.OperatorControls;
 import frc.robot.controls.RobotControls;
+import frc.robot.subsytems.Camera;
 import frc.robot.subsytems.Climber;
 import frc.robot.subsytems.Drivetrain;
 import frc.robot.subsytems.Intake;
@@ -48,6 +49,7 @@ public class Robot extends TimedRobot {
   private Shooter Shooter;
   private Drivetrain Drivetrain;
   private Climber Climber;
+  private Camera Camera;
 
   //Create new controls
   private RobotControls driverControls;
@@ -65,7 +67,9 @@ public class Robot extends TimedRobot {
       driverControls = new DriverControls(0);
       Climber = new Climber();
       operatorControls = new OperatorControls(1);
+      Camera = new Camera();
 
+      subsystems.add(Camera);
       subsystems.add(Intake);
       subsystems.add(Shooter);
       subsystems.add(Climber);
@@ -107,6 +111,7 @@ public class Robot extends TimedRobot {
       //To print anything that goes wrong
       SmartDashboard.putBoolean("Controls Working", false);
       e.printStackTrace();
+      throw e;
     }
     publishSubsystems();
   }
