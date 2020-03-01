@@ -16,16 +16,23 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Camera implements Subsystem{
 
-    private UsbCamera camera;
+    private UsbCamera camera1;
+
+    private UsbCamera camera2;
 
     private boolean camereasWorking;
 
     public Camera(){
         try{
-            camera = CameraServer.getInstance().startAutomaticCapture(0);
+            camera1 = CameraServer.getInstance().startAutomaticCapture(0);
 
-            camera.setFPS(10);
-            camera.setResolution(320, 180);
+            camera1.setFPS(10);
+            camera1.setResolution(320, 180);
+
+            camera2 = CameraServer.getInstance().startAutomaticCapture(1);
+
+            camera2.setFPS(10);
+            camera2.setResolution(320, 180);
             camereasWorking = true;
         }catch(Exception e){
             camereasWorking = false;

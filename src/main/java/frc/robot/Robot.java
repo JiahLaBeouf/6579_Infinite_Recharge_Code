@@ -6,6 +6,7 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot;
+//test
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -13,6 +14,8 @@ import java.util.List;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.auto.AutoStrategy;
+import frc.robot.auto.Straight;
 import frc.robot.controls.DriverControls;
 import frc.robot.controls.OperatorControls;
 import frc.robot.controls.RobotControls;
@@ -56,6 +59,9 @@ public class Robot extends TimedRobot {
   private RobotControls driverControls;
   private RobotControls operatorControls;
 
+  //Create auto objects
+  private AutoStrategy autoStrategy;
+
   //Creating the list object
   private List subsystems = new ArrayList<>();
 
@@ -69,15 +75,15 @@ public class Robot extends TimedRobot {
       Climber = new Climber();
       operatorControls = new OperatorControls(1);
       Camera = new Camera();
+      autoStrategy = new Straight();
 
       subsystems.add(Camera);
       subsystems.add(Intake);
       subsystems.add(Shooter);
       subsystems.add(Climber);
-      subsystems.add(Drivetrain);
+     // subsystems.add(Drivetrain);
     } catch (Exception e) {
       e.printStackTrace();
-      throw e;
     }
 
   }
@@ -85,7 +91,7 @@ public class Robot extends TimedRobot {
   //Initialises auto
   @Override
   public void autonomousInit() {
-
+    autoStrategy.start(this);
   }
 
   //What we do during auto

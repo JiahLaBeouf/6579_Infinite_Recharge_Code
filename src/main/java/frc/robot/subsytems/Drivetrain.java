@@ -43,6 +43,15 @@ public class Drivetrain implements Subsystem{
         drive.arcadeDrive(stickY, stickX);
     }
 
+    public void stop(){
+        drive.stopMotor();
+    }
+
+    public void driveStraight(double power){
+                leftToughBox.set(-power);
+                rightToughBox.set(power);
+    }
+
     @Override
     public void test() {
 

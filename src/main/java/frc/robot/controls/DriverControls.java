@@ -31,18 +31,6 @@ public class DriverControls extends PlaystationController{
         arcadeDrive(robot);
     }
 
-    @Override
-    public void pressR1(Robot robot) {
-      //Loading shooter
-      robot.getShooter().takeBall(-.8);
-    }
-
-    @Override
-    public void pressR2(Robot robot) {
-      //Shoot ball
-      robot.getShooter().shootBall(1);
-    }
-
     //Changed from original, requested from Brandon
     @Override
     public void pressL2(Robot robot){
@@ -53,7 +41,7 @@ public class DriverControls extends PlaystationController{
     @Override
     public void pressShare(Robot robot){
       //Ball gets pushed out of the robot (just in case something gets stuck)
-      robot.getIntake().intakeOut(0.1);
+      robot.getIntake().intakeOut(0.5);
     }
 
     @Override
@@ -69,36 +57,12 @@ public class DriverControls extends PlaystationController{
     }
 
     @Override
-    public void pressCircle(Robot robot){
-      //Pulls the climber down
-      robot.getClimber().climberMove(.3);
-    }
-
-    @Override
-    public void pressTriangle(Robot robot) {
-      //Pulls the climber up
-      robot.getClimber().climberMove(-.4);
-    }
-    
-    //resets shooter
-    @Override 
-    public void r1Released(Robot robot){
-      robot.getShooter().takeBall(0);
-      robot.getShooter().reset();
-    }
-    
-
-    @Override
     public void nothingPressed(Robot robot){
       //Makes sure nothing moves during the game
       robot.getIntake().intakeArmUp(0);
       robot.getIntake().intakeArmDown(0);
       robot.getIntake().takeIn(0);
       robot.getIntake().intakeOut(0);
-      robot.getShooter().shootBall(0);
-      robot.getShooter().takeBall(0);
-      robot.getShooter().reset();
-      robot.getClimber().climberMove(0);
     }
 
 }

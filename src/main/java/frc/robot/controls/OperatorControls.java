@@ -26,7 +26,43 @@ public class OperatorControls extends PlaystationController{
     //Add all controls that the operator will be doing here
 
     @Override
+    public void pressR1(Robot robot) {
+      //Loading shooter
+      robot.getShooter().takeBall(-.8);
+    }
+
+    @Override
+    public void pressR2(Robot robot) {
+      //Shoot ball
+      robot.getShooter().shootBall(1);
+    }
+
+    //resets shooter
+    @Override 
+    public void r1Released(Robot robot){
+        robot.getShooter().takeBall(0);
+        robot.getShooter().reset();
+       // SmartDashboard.get(key, value)
+    }
+        
+
+    @Override
+    public void pressCircle(Robot robot){
+      //Pulls the climber down
+      robot.getClimber().climberMove(.3);
+    }
+
+    @Override
+    public void pressTriangle(Robot robot) {
+      //Pulls the climber up
+      robot.getClimber().climberMove(-.4);
+    }
+
+    @Override
     public void nothingPressed(Robot robot){
-        //Make everything 0
+        robot.getShooter().shootBall(0);
+        robot.getShooter().takeBall(0);
+        robot.getShooter().reset();
+        robot.getClimber().climberMove(0);
     }
 }
