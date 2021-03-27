@@ -28,9 +28,13 @@ public class Climber implements Subsystem{
         climber = new VictorSP(Robot.CLIMBER);
 
         //Setting CAN ids
-        winchMain = new CANSparkMax(7, MotorType.kBrushless);
-        winchFollow = new CANSparkMax(8, MotorType.kBrushless);
-
+        try{
+            winchMain = new CANSparkMax(7, MotorType.kBrushless);
+            winchFollow = new CANSparkMax(8, MotorType.kBrushless);
+        } catch(Exception e){
+            System.out.println("Cant initalise Spark Maxes (Winch)");
+            e.printStackTrace();
+        }
         //Allows both neos to go the same speed without many lines of code
         winchFollow.follow(winchMain);
     }

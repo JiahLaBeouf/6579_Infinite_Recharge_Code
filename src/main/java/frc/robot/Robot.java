@@ -31,7 +31,7 @@ import frc.robot.subsytems.Subsystem;
 
 /**
  * This is no longer a demo program showing the use of the DifferentialDrive class.
- * Runs the motors with arcade steering.
+ * It use to run the motors with arcade steering, now it doesnt D:.
  * It now is 6579s main robot class
  */
 public class Robot extends TimedRobot {
@@ -44,9 +44,9 @@ public class Robot extends TimedRobot {
   public static final int CLIMBER = 4;
   public static final int INTAKE_FLYWHEEL = 5;
   public static final int INTAKE_ARM = 6;
-  public static final int SHOOTER_FLYWHEEL = 7;
+  public static final int UNUSED = 7; //Unused port right now, can be changed
   public static final int SHOOTER_ENTRY_WHEELS = 8;
-
+  public static final int SHOOTER_FLYWHEEL = 9;
 
   //Getting the subsystems into the code
   private Intake Intake;
@@ -63,7 +63,7 @@ public class Robot extends TimedRobot {
   private AutoStrategy autoStrategy;
 
   //Creating the list object
-  private List subsystems = new ArrayList<>();
+  private List<Subsystem> subsystems = new ArrayList<>();
 
   public void robotInit(){
     
@@ -141,7 +141,7 @@ public class Robot extends TimedRobot {
 
   private void publishSubsystems(){
     //To get the names of the subsystems
-    Iterator i = subsystems.iterator();
+    Iterator<Subsystem> i = subsystems.iterator();
     //To call the publishStats method of each subsystem
     while(i.hasNext()){
 

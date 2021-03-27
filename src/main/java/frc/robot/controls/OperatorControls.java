@@ -7,6 +7,7 @@
 
 package frc.robot.controls;
 
+
 import frc.robot.Robot;
 
 /**
@@ -48,14 +49,26 @@ public class OperatorControls extends PlaystationController{
 
     @Override
     public void pressCircle(Robot robot){
-      //Pulls the climber down
-      robot.getClimber().climberMove(.3);
+      //Pulls the climber up
+      robot.getClimber().climberMove(.6);
     }
 
     @Override
     public void pressTriangle(Robot robot) {
-      //Pulls the climber up
-      robot.getClimber().climberMove(-.4);
+      //Pulls the climber down
+      robot.getClimber().climberMove(-.3);
+    }
+
+    @Override 
+    public void pressCross(Robot robot){
+      //Pulls the robot up
+      robot.getClimber().winch(1);
+    }
+
+    @Override
+    public void pressShare(Robot robot){
+      //Reverses the winch
+      robot.getClimber().winch(-.3);
     }
 
     @Override
@@ -64,5 +77,6 @@ public class OperatorControls extends PlaystationController{
         robot.getShooter().takeBall(0);
         robot.getShooter().reset();
         robot.getClimber().climberMove(0);
+        robot.getClimber().winch(0);
     }
 }

@@ -22,7 +22,7 @@ public class Straight extends AutoStrategy {
     public void doStrategy(Robot robot) {
 
         Drivetrain drivetrain = robot.getDrivetrain();
-        Shooter shooter = robot.getShooter();
+        //Shooter shooter = robot.getShooter();
 
         System.out.println("doStrategy");
         // start driving to the wall (for Xms)
