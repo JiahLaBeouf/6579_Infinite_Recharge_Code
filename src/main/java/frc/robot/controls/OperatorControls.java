@@ -46,6 +46,11 @@ public class OperatorControls extends PlaystationController{
        // SmartDashboard.get(key, value)
     }
         
+    /*
+
+    Flywheel for shooter continues even when button ttaken off
+
+    */
 
     @Override
     public void pressCircle(Robot robot){

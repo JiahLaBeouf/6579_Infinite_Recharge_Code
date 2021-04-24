@@ -13,8 +13,10 @@ import java.util.Iterator;
 import java.util.List;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.auto.AutoStrategy;
+import frc.robot.auto.ShootAuto;
 import frc.robot.auto.Straight;
 import frc.robot.controls.DriverControls;
 import frc.robot.controls.OperatorControls;
@@ -65,8 +67,24 @@ public class Robot extends TimedRobot {
   //Creating the list object
   private List<Subsystem> subsystems = new ArrayList<>();
 
+  //Select which auto we wil be using
+  private SendableChooser<AutoStrategy> autoChooser;
+
+  private void autoSelector(){
+
+    autoChooser = new SendableChooser<AutoStrategy>();
+
+   // autoChooser.addOption("Straight Auto", new Straight());
+    autoChooser.addOption("Shoot Auto", new ShootAuto());
+
+    SmartDashboard.putData("Auto Selection: ", autoChooser);
+
+  }
+
   public void robotInit(){
     
+    autoSelector();
+
     try {
       Intake = new Intake();
       Drivetrain = new Drivetrain();
@@ -75,7 +93,7 @@ public class Robot extends TimedRobot {
       Climber = new Climber();
       operatorControls = new OperatorControls(1);
       Camera = new Camera();
-      autoStrategy = new Straight();
+      autoStrategy = new ShootAuto();
 
       subsystems.add(Camera);
       subsystems.add(Intake);
